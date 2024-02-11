@@ -1,0 +1,52 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-02-12T00:59:10+08:00",
+    "name": "Globed Central",
+    "author": "admin@arcticwoof.com",
+    "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Central Server)",
+    "features": null,
+    "docker_images": {
+        "quay.io\/arcticwoof\/globed-central:latest": "quay.io\/arcticwoof\/globed-central:latest"
+    },
+    "file_denylist": [],
+    "startup": ".\/{{GLOBED_FILE}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": [\r\n        \"Globed central server launched on\"\r\n    ]\r\n}",
+        "logs": "{}",
+        "stop": "^^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n\r\ncd \/mnt\/server\/",
+            "container": "quay.io\/arcticwoof\/globed-central:latest",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Globed File",
+            "description": "The file name for Globed Central Server",
+            "env_variable": "GLOBED_FILE",
+            "default_value": "globed-central-server-x64",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Globed Version",
+            "description": "The version of Globed",
+            "env_variable": "VERSION",
+            "default_value": "1.0.5",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        }
+    ]
+}
