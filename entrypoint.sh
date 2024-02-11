@@ -10,4 +10,4 @@ curl -Lo ./globed-central-server-x64 https://github.com/dankmeme01/globed2/relea
 chmod +x ./globed-central-server-x64
 
 # Run the Server
-./globed-central-server-x64
+./{{GLOBED_FILE}}
