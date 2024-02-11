@@ -1,3 +1,4 @@
+FROM ubuntu:trusty
 CMD ["/bin/bash" "/entrypoint.sh"]
 COPY file:0301efffd83b2965f98b2ef1afc7818bd8052d87fd6cb739e386ee68d6cb4dc3 in /entrypoint.sh
 RUN update-locale lang=en_US.UTF-8 && dpkg-reconfigure --frontend noninteractive locales
