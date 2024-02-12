@@ -40,7 +40,7 @@
         },
         {
             "name": "Globed Version",
-            "description": "The version of Globed",
+            "description": "The version of Globed. Required a Reinstall to update.",
             "env_variable": "VERSION",
             "default_value": "1.0.5",
             "user_viewable": true,
