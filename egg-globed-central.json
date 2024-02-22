@@ -16,7 +16,7 @@
     "startup": ".\/{{GLOBED_FILE}}",
     "config": {
         "files": "{}",
-        "startup": "{\r\n    \"done\": [\r\n        \"Globed central server launched on\"\r\n    ]\r\n}",
+        "startup": "{\r\n    \"done\": [\r\n        \"🚀 Rocket has launched from\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^^C"
     },
