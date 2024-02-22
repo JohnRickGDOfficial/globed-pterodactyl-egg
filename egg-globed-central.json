@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-02-12T00:59:10+08:00",
+    "exported_at": "2024-02-22T23:50:49+08:00",
     "name": "Globed Central",
     "author": "pterodactyl@arcticwoof.xyz",
     "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Central Server)",
@@ -15,14 +15,14 @@
     "file_denylist": [],
     "startup": ".\/{{GLOBED_FILE}}",
     "config": {
-        "files": "{}",
-        "startup": "{\r\n    \"done\": [\r\n        \"🚀 Rocket has launched from\"\r\n    ]\r\n}",
+        "files": "{\r\n    \"Rocket.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"port\": \"{{server.build.env.PORT}}\",\r\n            \"cli_colors\": \"true\",\r\n            \"address\": \"{{server.build.env.IP_ADDRESS}}\",\r\n            \"ip_header\": \"false\",\r\n            \"form\": \"1KiB\",\r\n            \"data-form\": \"1KiB\",\r\n            \"file\": \"1KiB\",\r\n            \"json\": \"1KiB\",\r\n            \"msgpack\": \"1KiB\",\r\n            \"string\": \"2KiB\",\r\n            \"bytes\": \"8KiB\",\r\n            \"pool_size\": \"25\",\r\n            \"timeout\": \"10\",\r\n            \"url\": \"{{server.build.env.SQLITE_URL}}\" \r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": [\r\n        \"\\ud83d\\ude80 Rocket has launched from\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^^C"
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n\r\ncd \/mnt\/server\/",
+            "script": "#!\/bin\/bash\r\nchmod 777 *\r\nchmod +x *\r\n\r\n\r\ncd \/mnt\/server\/",
             "container": "quay.io\/arcticwoof\/globed-central:latest",
             "entrypoint": "bash"
         }
@@ -46,6 +46,26 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Globed IP Address",
+            "description": "Globed Game Server IP Address. Should be the same or similar to your assigned allocated IP. Leave it as default to use the same IP.",
+            "env_variable": "IP_ADDRESS",
+            "default_value": "0.0.0.0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:15",
+            "field_type": "text"
+        },
+        {
+            "name": "SQlite URL",
+            "description": "URL of the sqlite database. Should end in \"?mode=rwc\" if you want the database to be created if it doesn't exist. Only modify if you know what you doing.",
+            "env_variable": "SQLITE_URL",
+            "default_value": "sqlite:\/\/db.sqlite?mode=rwc",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string",
             "field_type": "text"
         }
     ]
