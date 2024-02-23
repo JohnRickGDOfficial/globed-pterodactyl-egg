@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-02-23T18:46:19+08:00",
+    "exported_at": "2024-02-23T18:53:47+08:00",
     "name": "Globed Central",
     "author": "pterodactyl@arcticwoof.xyz",
     "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Central Server)",
@@ -15,7 +15,7 @@
     "file_denylist": [],
     "startup": ".\/{{GLOBED_FILE}}",
     "config": {
-        "files": "{\r\n    \"Rocket.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"port\": \"port = \\\"{{server.build.env.PORT}}\\\"\",\r\n            \"cli_colors\": \"cli_colors = true\",\r\n            \"address\": \"address = \\\"{{server.build.env.IP_ADDRESS}}\\\"\",\r\n            \"ip_header\": \"ip_header = false\",\r\n            \"form\": \"form = \\\"1KiB\\\"\",\r\n            \"data-form\": \"data-form = \\\"1KiB\\\"\",\r\n            \"file\": \"file = \\\"1KiB\\\"\",\r\n            \"json\": \"json = \\\"1KiB\\\"\",\r\n            \"msgpack\": \"msgpack = \\\"1KiB\\\"\",\r\n            \"string\": \"string = \\\"2KiB\\\"\",\r\n            \"bytes\": \"bytes = \\\"8KiB\\\"\",\r\n            \"pool_size\": \"pool_size = 25\",\r\n            \"timeout\": \"timeout = 10\",\r\n            \"url\": \"url = \\\"{{server.build.env.SQLITE_URL}}\\\"\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"Rocket.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"port\": \"port = {{server.build.env.PORT}}\",\r\n            \"cli_colors\": \"cli_colors = true\",\r\n            \"address\": \"address = \\\"{{server.build.env.IP_ADDRESS}}\\\"\",\r\n            \"ip_header\": \"ip_header = false\",\r\n            \"form\": \"form = \\\"1KiB\\\"\",\r\n            \"data-form\": \"data-form = \\\"1KiB\\\"\",\r\n            \"file\": \"file = \\\"1KiB\\\"\",\r\n            \"json\": \"json = \\\"1KiB\\\"\",\r\n            \"msgpack\": \"msgpack = \\\"1KiB\\\"\",\r\n            \"string\": \"string = \\\"2KiB\\\"\",\r\n            \"bytes\": \"bytes = \\\"8KiB\\\"\",\r\n            \"pool_size\": \"pool_size = 25\",\r\n            \"timeout\": \"timeout = 10\",\r\n            \"url\": \"url = \\\"{{server.build.env.SQLITE_URL}}\\\"\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": [\r\n        \"Rocket has launched from\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^^C"
