@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-02-23T18:53:47+08:00",
+    "exported_at": "2024-02-28T11:49:32+08:00",
     "name": "Globed Central",
     "author": "pterodactyl@arcticwoof.xyz",
     "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Central Server)",
@@ -15,7 +15,7 @@
     "file_denylist": [],
     "startup": ".\/{{GLOBED_FILE}}",
     "config": {
-        "files": "{\r\n    \"Rocket.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"port\": \"port = {{server.build.env.PORT}}\",\r\n            \"cli_colors\": \"cli_colors = true\",\r\n            \"address\": \"address = \\\"{{server.build.env.IP_ADDRESS}}\\\"\",\r\n            \"ip_header\": \"ip_header = false\",\r\n            \"form\": \"form = \\\"1KiB\\\"\",\r\n            \"data-form\": \"data-form = \\\"1KiB\\\"\",\r\n            \"file\": \"file = \\\"1KiB\\\"\",\r\n            \"json\": \"json = \\\"1KiB\\\"\",\r\n            \"msgpack\": \"msgpack = \\\"1KiB\\\"\",\r\n            \"string\": \"string = \\\"2KiB\\\"\",\r\n            \"bytes\": \"bytes = \\\"8KiB\\\"\",\r\n            \"pool_size\": \"pool_size = 25\",\r\n            \"timeout\": \"timeout = 10\",\r\n            \"url\": \"url = \\\"{{server.build.env.SQLITE_URL}}\\\"\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"Rocket.toml\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"port\": \"port = {{server.build.env.PORT}}\",\r\n            \"cli_colors\": \"cli_colors = {{server.build.env.CLI_COLORS}}\",\r\n            \"address\": \"address = \\\"{{server.build.env.IP_ADDRESS}}\\\"\",\r\n            \"ip_header\": \"ip_header = {{server.build.env.IP_HEADER}}\",\r\n            \"form\": \"form = \\\"1KiB\\\"\",\r\n            \"data-form\": \"data-form = \\\"1KiB\\\"\",\r\n            \"file\": \"file = \\\"1KiB\\\"\",\r\n            \"json\": \"json = \\\"1KiB\\\"\",\r\n            \"msgpack\": \"msgpack = \\\"1KiB\\\"\",\r\n            \"string\": \"string = \\\"2KiB\\\"\",\r\n            \"bytes\": \"bytes = \\\"8KiB\\\"\",\r\n            \"pool_size\": \"pool_size = {{server.build.env.POOL_SIZE}}\",\r\n            \"timeout\": \"timeout = {{server.build.env.TIMEOUT}}\",\r\n            \"url\": \"url = \\\"{{server.build.env.SQLITE_URL}}\\\"\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": [\r\n        \"Rocket has launched from\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^^C"
@@ -42,7 +42,7 @@
             "name": "Globed Version",
             "description": "The version of Globed. Required a Reinstall to update.",
             "env_variable": "VERSION",
-            "default_value": "1.2.0",
+            "default_value": "1.2.5",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:20",
@@ -76,6 +76,46 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "IP Header",
+            "description": "IP header to inspect to get client's real IP. Must be true or false.",
+            "env_variable": "IP_HEADER",
+            "default_value": "false",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Pool Size",
+            "description": "Pool Size in the database",
+            "env_variable": "POOL_SIZE",
+            "default_value": "25",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|integer",
+            "field_type": "text"
+        },
+        {
+            "name": "Database Timeout",
+            "description": "Database timeout when there's no request\/respond for certain time (seconds)",
+            "env_variable": "TIMEOUT",
+            "default_value": "10",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|integer",
+            "field_type": "text"
+        },
+        {
+            "name": "CLI Colors",
+            "description": "Whether to use colors and emoji when logging. Must be true or false.",
+            "env_variable": "CLI_COLORS",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
             "field_type": "text"
         }
     ]
