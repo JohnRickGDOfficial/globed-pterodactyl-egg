@@ -7,7 +7,8 @@ It's easy to use and can create servers in an instant.
 ## Usage
 Download [egg-globed-central.json](https://github.com/DumbCaveSpider/globed-central-egg/blob/main/egg-globed-central.json) and export it into your Pterodactyl Panel in the Nest Section.
 
-Be sure to manually change the updated version to the latest due to not auto-update
+## Addtional Info (Both Egg)
+Be sure to manually change the updated version to the latest on **Startup** tab due to not auto-update
 
 ## Resources
 > [Globed](https://github.com/dankmeme01/globed2)
