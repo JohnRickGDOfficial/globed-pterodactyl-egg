@@ -4,10 +4,10 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-07-03T01:13:26+08:00",
+    "exported_at": "2025-03-06T19:31:06+08:00",
     "name": "Globed Game Server",
     "author": "pterodactyl@arcticwoof.xyz",
-    "description": null,
+    "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Game Server)",
     "features": null,
     "docker_images": {
         "quay.io\/arcticwoof\/globed-game:latest": "quay.io\/arcticwoof\/globed-game:latest"
@@ -45,7 +45,7 @@
             "default_value": "1.7.2",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:20",
+            "rules": "required|regex:\/^\\d+\\.\\d+\\.\\d+$\/",
             "field_type": "text"
         },
         {
@@ -60,12 +60,12 @@
         },
         {
             "name": "Globed Port",
-            "description": "Globed Game Server Port. Default is 41001",
+            "description": "Globed Game Server Port. Default is 4202",
             "env_variable": "IP_PORT",
-            "default_value": "41001",
+            "default_value": "4202",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:20",
+            "rules": "required|integer|between:0,65535",
             "field_type": "text"
         },
         {

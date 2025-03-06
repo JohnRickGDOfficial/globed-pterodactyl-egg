@@ -9,7 +9,6 @@ It's easy to use and can create servers in an instant.
 
 ## Addtional Info
 - Be sure to manually change the updated version to the latest on **Startup** tab since these servers do not auto update to the latest version of Globed whenever it updates so do manually update the version and reinstall the server. This only replace the required files and does not repalce your configuration.
-- Default port for **Game Server** is `4202` and **Central Server** is `4201`.
 
 ## Resources
 > [Globed](https://github.com/dankmeme01/globed2)
