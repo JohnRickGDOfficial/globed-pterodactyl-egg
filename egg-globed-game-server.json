@@ -4,16 +4,16 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-03-06T19:31:06+08:00",
+    "exported_at": "2025-03-06T20:44:32+08:00",
     "name": "Globed Game Server",
     "author": "pterodactyl@arcticwoof.xyz",
     "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Game Server)",
     "features": null,
     "docker_images": {
-        "quay.io\/arcticwoof\/globed-game:latest": "quay.io\/arcticwoof\/globed-game:latest"
+        "Globed Ptero": "quay.io\/arcticwoof\/globed-central:latest"
     },
     "file_denylist": [],
-    "startup": ".\/{{GLOBED_FILE}} {{IP_ADDRESS}}:{{IP_PORT}} {{CENTRAL_ADDRESS}} {{PASSWORD}}",
+    "startup": ".\/{{GLOBED_FILE}} {{IP_ADDRESS}}:{{SERVER_PORT}} {{CENTRAL_ADDRESS}} {{PASSWORD}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": [\r\n        \"Server launched on \"\r\n    ]\r\n}",
@@ -22,9 +22,9 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n\r\ncd \/mnt\/server\/",
-            "container": "quay.io\/arcticwoof\/globed-central:latest",
-            "entrypoint": "bash"
+            "script": "#!\/bin\/ash\r\necho \"its globbing time!\"\r\n\r\n# Get the machine architecture\r\narch=$(uname -m)\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Check the architecture and echo the corresponding outcome\r\nif [[ \"$arch\" == \"x86_64\" && \"i686\" ]]; then\r\n    echo \"getting the $arch v${VERSION} of the globbing\"\r\n    curl -Lo .\/globed-game-server-x64 https:\/\/github.com\/GlobedGD\/globed2\/releases\/download\/v${VERSION}\/globed-game-server-x64\r\n    chmod +x .\/globed-game-server-x64\r\n    echo \"globbing done. have a soggy day\"\r\n    \r\nelif [[ \"$arch\" == \"arm64\" || \"$arch\" == \"aarch64\" ]]; then\r\n    echo \"getting the $arch v${VERSION} of the globbing\"\r\n    curl -Lo .\/globed-game-server-arm64 https:\/\/github.com\/GlobedGD\/globed2\/releases\/download\/v${VERSION}\/globed-game-server-arm64\r\n    chmod +x .\/globed-game-server-arm64\r\n    echo \"globbing done. have a soggy day\"\r\n    \r\nelse\r\n    echo \"wth is this cpu you got lmao?: $arch\"\r\n    echo \"globbing failed.\"\r\nfi",
+            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "entrypoint": "ash"
         }
     },
     "variables": [
@@ -56,16 +56,6 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:15",
-            "field_type": "text"
-        },
-        {
-            "name": "Globed Port",
-            "description": "Globed Game Server Port. Default is 4202",
-            "env_variable": "IP_PORT",
-            "default_value": "4202",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|integer|between:0,65535",
             "field_type": "text"
         },
         {
