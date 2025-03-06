@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-03-06T20:44:23+08:00",
+    "exported_at": "2025-03-06T21:23:43+08:00",
     "name": "Globed Central Server",
     "author": "pterodactyl@arcticwoof.xyz",
     "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Central Server)",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\necho \"its globbing time!\"\r\n\r\n# Get the machine architecture\r\narch=$(uname -m)\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Check the architecture and echo the corresponding outcome\r\nif [[ \"$arch\" == \"x86_64\" && \"i686\" ]]; then\r\n    echo \"getting the $arch v${VERSION} of the globbing\"\r\n    curl -Lo .\/globed-central-server-x64 https:\/\/github.com\/GlobedGD\/globed2\/releases\/download\/v${VERSION}\/globed-central-server-x64\r\n    chmod +x .\/globed-central-server-x64\r\n    echo \"globbing done. have a soggy day\"\r\n    \r\nelif [[ \"$arch\" == \"arm64\" || \"$arch\" == \"aarch64\" ]]; then\r\n    echo \"getting the $arch v${VERSION} of the globbing\"\r\n    curl -Lo .\/globed-central-server-arm64 https:\/\/github.com\/GlobedGD\/globed2\/releases\/download\/v${VERSION}\/globed-central-server-arm64\r\n    chmod +x .\/globed-central-server-arm64\r\n    echo \"globbing done. have a soggy day\"\r\n    \r\nelse\r\n    echo \"wth is this cpu you got lmao?: $arch\"\r\n    echo \"globbing failed.\"\r\nfi",
+            "script": "#!\/bin\/ash\r\necho \"its globbing time!\"\r\n\r\n# Get the machine architecture\r\narch=$(uname -m)\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Check the architecture and echo the corresponding outcome\r\nif [[ \"$arch\" == \"x86_64\" || \"$arch\" == \"i686\" ]]; then\r\n    echo \"getting the $arch v${VERSION} of the globbing\"\r\n    curl -Lo .\/globed-central-server-x64 https:\/\/github.com\/GlobedGD\/globed2\/releases\/download\/v${VERSION}\/globed-central-server-x64\r\n    chmod +x .\/globed-central-server-x64\r\n    echo \"globbing done. have a soggy day\"\r\n    \r\nelif [[ \"$arch\" == \"arm64\" || \"$arch\" == \"aarch64\" ]]; then\r\n    echo \"getting the $arch v${VERSION} of the globbing\"\r\n    curl -Lo .\/globed-central-server-arm64 https:\/\/github.com\/GlobedGD\/globed2\/releases\/download\/v${VERSION}\/globed-central-server-arm64\r\n    chmod +x .\/globed-central-server-arm64\r\n    echo \"globbing done. have a soggy day\"\r\n    echo \"be sure to change your 'Globed File' from x64 to arm64 at the startup tab.\"\r\n    \r\nelse\r\n    echo \"wth is $arch? lmao. this isnt a correct architecture so no globbing for you \"\r\n    echo \"globbing failed.\"\r\nfi",
             "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }
