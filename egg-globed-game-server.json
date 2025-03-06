@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-03-06T21:23:36+08:00",
+    "exported_at": "2025-03-06T21:56:42+08:00",
     "name": "Globed Game Server",
     "author": "pterodactyl@arcticwoof.xyz",
     "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Game Server)",
@@ -49,16 +49,6 @@
             "field_type": "text"
         },
         {
-            "name": "Globed IP Address",
-            "description": "Globed Game Server IP Address. Should be the same or similar to your assigned allocated IP. Leave it as default to use the same IP.",
-            "env_variable": "IP_ADDRESS",
-            "default_value": "0.0.0.0",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|ipv4",
-            "field_type": "text"
-        },
-        {
             "name": "Globed Central Address",
             "description": "Globed Central Address. Must include http:\/\/ or https:\/\/ on the value.",
             "env_variable": "CENTRAL_ADDRESS",
@@ -76,6 +66,16 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "nullable|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Game Server IP",
+            "description": "Globed Game Server IP Address. Leave it as 0.0.0.0 for all IP addresses.",
+            "env_variable": "IP_ADDRESS",
+            "default_value": "0.0.0.0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|ipv4",
             "field_type": "text"
         }
     ]
