@@ -4,10 +4,10 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-08-17T19:05:00+08:00",
+    "exported_at": "2025-08-17T19:15:00+08:00",
     "name": "Globed Game Server",
     "author": "pterodactyl@arcticwoof.xyz",
-    "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Game Server)",
+    "description": "Globed is an open-source, highly customizable multiplayer mod for Geometry Dash powered by Geode. (Game Server, protocol v15)",
     "features": null,
     "docker_images": {
         "Globed Ptero": "quay.io/arcticwoof/globed-central:latest"
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/ash\n\necho \"its globbing time!\"\n\n# Get the machine architecture\narch=$(uname -m)\n\nmkdir -p /mnt/server\ncd /mnt/server\n\n# Check the architecture and download the correct binary\nif [[ \"$arch\" == \"x86_64\" || \"$arch\" == \"i686\" ]]; then\n    echo \"getting the $arch v${VERSION} of the globbing\"\n    curl -Lo ./globed-game-server-x64 https://github.com/GlobedGD/globed2/releases/download/v${VERSION}/globed-game-server-x64\n    chmod +x ./globed-game-server-x64\n    echo \"globbing done. have a soggy day\"\n\nelif [[ \"$arch\" == \"arm64\" || \"$arch\" == \"aarch64\" ]]; then\n    echo \"getting the $arch v${VERSION} of the globbing\"\n    curl -Lo ./globed-game-server-arm64 https://github.com/GlobedGD/globed2/releases/download/v${VERSION}/globed-game-server-arm64\n    chmod +x ./globed-game-server-arm64\n    echo \"globbing done. have a soggy day\"\n    echo \"be sure to change your 'Globed File' from x64 to arm64 at the startup tab.\"\n\nelse\n    echo \"wth is $arch? lmao. this isnt a correct architecture so no globbing for you\"\n    echo \"globbing failed.\"\nfi",
+            "script": "#!/bin/ash\n\necho \"its globbing time!\"\n\n# Get the machine architecture\narch=$(uname -m)\n\nmkdir -p /mnt/server\ncd /mnt/server\n\n# Check architecture and download the correct v1.8.5 binary\nif [[ \"$arch\" == \"x86_64\" || \"$arch\" == \"i686\" ]]; then\n    echo \"getting the $arch v1.8.5 of the globbing\"\n    curl -Lo ./globed-game-server-x64 https://github.com/GlobedGD/globed2/releases/download/v1.8.5/globed-game-server-x64\n    chmod +x ./globed-game-server-x64\n    echo \"globbing done. have a soggy day\"\n\nelif [[ \"$arch\" == \"arm64\" || \"$arch\" == \"aarch64\" ]]; then\n    echo \"getting the $arch v1.8.5 of the globbing\"\n    curl -Lo ./globed-game-server-arm64 https://github.com/GlobedGD/globed2/releases/download/v1.8.5/globed-game-server-arm64\n    chmod +x ./globed-game-server-arm64\n    echo \"globbing done. have a soggy day\"\n    echo \"be sure to change your 'Globed File' from x64 to arm64 at the startup tab.\"\n\nelse\n    echo \"wth is $arch? this isnt a supported architecture.\"\n    echo \"globbing failed.\"\nfi",
             "container": "ghcr.io/pterodactyl/installers:alpine",
             "entrypoint": "ash"
         }
